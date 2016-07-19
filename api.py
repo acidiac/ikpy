@@ -2,7 +2,7 @@
 # @Author: amit chanchal
 # @Date:   2016-07-19 19:56:16
 # @Last Modified by:   amit chanchal
-# @Last Modified time: 2016-07-19 23:39:32
+# @Last Modified time: 2016-07-19 23:56:10
 import os
 from flask import Flask, url_for, jsonify, request
 from flask_sqlalchemy import SQLAlchemy 
@@ -115,6 +115,7 @@ def edit_customer(id):
 	return jsonify ({})
 
 if __name__ == "__main__":
+	db.create_all()
 	app.run(debug = True)
 
 
