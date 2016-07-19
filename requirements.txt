@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> a7d474a6e9a75eab3ab527d9a47e6a9182aa1da7
 Flask==0.10.1
 Flask-HTTPAuth==2.2.1
 Flask-SQLAlchemy==1.0
@@ -12,4 +15,8 @@ httpie==0.8.0
 itsdangerous==0.24
 python-dateutil==2.2
 requests==2.3.0
+<<<<<<< HEAD
 six==1.7.3
+=======
+six==1.7.3
+>>>>>>> a7d474a6e9a75eab3ab527d9a47e6a9182aa1da7
