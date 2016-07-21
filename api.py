@@ -2,7 +2,7 @@
 # @Author: amit chanchal
 # @Date:   2016-07-19 19:56:16
 # @Last Modified by:   amit chanchal
-# @Last Modified time: 2016-07-19 23:56:10
+# @Last Modified time: 2016-07-21 07:38:16
 import os
 from flask import Flask, url_for, jsonify, request
 from flask_sqlalchemy import SQLAlchemy 
@@ -34,6 +34,26 @@ class ValidationError(ValueError):
 	LargeBinary	 	-   
 	stores large arbitrary binary data
 '''
+class User(db.Model):
+	"""
+		Defining the database model for users. In sync with flask login.
+		
+	"""
+	pass
+
+class Community(object):
+	"""docstring for Community"""
+	pass
+
+
+		
+		
+
+class IKAssets(db.Model):
+	"""docstring for IKAssets"""
+	pass
+		
+
 class Organization(db.Model):
 	"""
 		Defining the database model for Organizations table.
@@ -57,7 +77,7 @@ class Organization(db.Model):
 	geo_state = db.Column(db.String(65))
 	geo_country = db.Column(db.String(75))
 	geo_postcode = db.Column(db.String(12))
-	phone = db.Column(db.Integer(16))
+	phone = db.Column(db.Integer)
 	address = db.Column(db.Text)
 	website = db.Column(db.String(255))
 	social_linkedin = db.Column(db.String(255))
@@ -78,8 +98,8 @@ class Organization(db.Model):
 			'group': self.group,
 			'legal': self.legal,
 			'description' : self.description,
-			'geo_town': self.geo_town
-			'geo_state' : self.geo_state
+			'geo_town': self.geo_town,
+			'geo_state' : self.geo_state,
 			'geo_country' : self.geo_country,
 			'geo_postcode' : self.geo_postcode,
 			'phone' : self.phone,
@@ -185,8 +205,8 @@ def edit_org(id):
 	db.session.commit()
 	return jsonify({})
 
-@app.route('/org/admin/<int:user_id, int:id>', methods = ['PUT'])
-def add_admin_org(user_id,id):
+@app.route('/org/admin/<int:id>', methods = ['PUT'])
+def add_admin_org(id):
 	'''
 		PUT method to add a user as admin for organisation
 	'''
